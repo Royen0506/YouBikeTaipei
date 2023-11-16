@@ -18,7 +18,7 @@ function renderData(data) {
   let str = "";
   data.forEach(function (item, index) {
     // console.log(item);
-    let content = `<li class="border border-2 border-dark rounded-4 py-3 mb-3">站名：${item.sna}<p>地址：${item.ar}</p><br>站點目前可租借車輛：<p class="fs-3">${item.sbi}</p>可歸還車位：<p class="fs-3">${item.bemp}</p></li>`;
+    let content = `<li class="border border-2 border-dark rounded-4 py-3 px-3 mb-3">站名：${item.sna}<p>地址：${item.ar}</p><br>站點目前可租借車輛：<p class="fs-3">${item.sbi}</p>可歸還車位：<p class="fs-3">${item.bemp}</p></li>`;
     str += content;
   });
   list.innerHTML = str;
