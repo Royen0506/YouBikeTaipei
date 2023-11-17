@@ -109,9 +109,6 @@ let mrtData = [
   { station: "捷運公館站" },
   { station: "捷運萬隆站" },
   { station: "捷運景美站" },
-  { station: "捷運大坪林站" },
-  { station: "捷運七張站" },
-  { station: "捷運小碧潭站" },
 ];
 
 const mrtStation = document.querySelector("#mrt");
