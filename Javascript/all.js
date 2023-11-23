@@ -43,6 +43,7 @@ function filterData(data) {
         newData.push(item);
       }
       renderData(newData);
+      mrtStation.value = "";
     });
   });
 }
@@ -134,6 +135,7 @@ function renderMrtList(data) {
       }
     });
     renderData(targetStation);
+    area.value = "";
   });
 }
 
@@ -173,5 +175,7 @@ function keywordSearch(arr) {
       }
     });
     renderData(targetStation);
+    area.value = "";
+    mrtStation.value = "";
   });
 }
