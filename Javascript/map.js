@@ -1,3 +1,4 @@
+getUserPosition();
 axios
   .get(
     "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json"
@@ -12,14 +13,12 @@ let userPosition = [];
 function getUserPosition() {
   const successCallback = (position) => {
     userPosition.push(position.coords.latitude, position.coords.longitude);
-    renderMap(data);
   };
   const errorCallback = (error) => {
     console.log(error);
   };
   navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 }
-getUserPosition();
 
 //渲染站點到地圖
 
