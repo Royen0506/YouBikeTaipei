@@ -8,13 +8,18 @@ axios
 
 //擷取使用者位置
 let userPosition = [];
-const successCallback = (position) => {
-  userPosition.push(position.coords.latitude, position.coords.longitude);
-};
-const errorCallback = (error) => {
-  console.log(error);
-};
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+
+function getUserPosition() {
+  const successCallback = (position) => {
+    userPosition.push(position.coords.latitude, position.coords.longitude);
+    renderMap(data);
+  };
+  const errorCallback = (error) => {
+    console.log(error);
+  };
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+}
+getUserPosition();
 
 //渲染站點到地圖
 
@@ -30,7 +35,7 @@ let greenIcon = new L.Icon({
 });
 
 function renderMap(data) {
-  map = L.map("map").setView(userPosition, 17);
+  map = L.map("map").setView(userPosition, 16);
   L.tileLayer(
     "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
     {
