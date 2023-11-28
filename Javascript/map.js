@@ -1,19 +1,18 @@
-//擷取使用者位置;
-// let userPosition = [];
+// 擷取使用者位置;
+let userPosition = [];
 
-// navigator.geolocation.getCurrentPosition((position) => {
-//   userPosition.push(position.coords.latitude, position.coords.longitude);
-// });
+navigator.geolocation.getCurrentPosition((position) => {
+  userPosition.push(position.coords.latitude, position.coords.longitude);
+  axios
+    .get(
+      "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json"
+    )
+    .then(function (response) {
+      renderMap(response.data);
+    });
+});
 
-axios
-  .get(
-    "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json"
-  )
-  .then(function (response) {
-    renderMap(response.data);
-  });
-
-//渲染站點到地圖
+// 渲染站點到地圖
 let greenIcon = new L.Icon({
   iconUrl:
     "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
@@ -26,19 +25,16 @@ let greenIcon = new L.Icon({
 });
 
 function renderMap(data) {
-  map = L.map("map").setView([25.042254, 121.5509563], 15);
-  L.tileLayer(
-    "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-    {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }
+  let map = L.map("map").setView(userPosition, 14);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }).addTo(map);
 
-    // L.marker([25.0486589, 121.5092654], { icon: greenIcon })
-    //   .addTo(map)
-    //   .bindPopup(`<p>您的位置</p>`)
-    //   .openPopup()
-  ).addTo(map);
+  L.marker(userPosition, { icon: greenIcon })
+    .addTo(map)
+    .bindPopup(`<p>您的位置</p>`)
+    .openPopup();
 
   let markers = L.markerClusterGroup().addTo(map);
   data.forEach(function (item) {
@@ -49,6 +45,6 @@ function renderMap(data) {
         )
         .openPopup()
     );
-    map.addLayer(markers);
   });
+  map.addLayer(markers);
 }
