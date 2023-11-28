@@ -6,7 +6,29 @@ axios
     renderMap(response.data);
   });
 
+//擷取使用者位置
+let userPosition = [];
+const successCallback = (position) => {
+  userPosition.push(position.coords.latitude, position.coords.longitude);
+};
+const errorCallback = (error) => {
+  console.log(error);
+};
+navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+
 //渲染站點到地圖
+
+let greenIcon = new L.Icon({
+  iconUrl:
+    "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
+  shadowUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
+
 function renderMap(data) {
   map = L.map("map").setView(userPosition, 17);
   L.tileLayer(
@@ -15,7 +37,11 @@ function renderMap(data) {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     },
-    L.marker(userPosition).bindPopup(`<p>您的位置</p>`).openPopup()
+
+    L.marker(userPosition, { icon: greenIcon })
+      .addTo(map)
+      .bindPopup(`<p>您的位置</p>`)
+      .openPopup()
   ).addTo(map);
 
   let markers = L.markerClusterGroup().addTo(map);
@@ -30,13 +56,3 @@ function renderMap(data) {
     map.addLayer(markers);
   });
 }
-
-//擷取使用者位置
-let userPosition = [];
-const successCallback = (position) => {
-  userPosition.push(position.coords.latitude, position.coords.longitude);
-};
-const errorCallback = (error) => {
-  console.log(error);
-};
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
