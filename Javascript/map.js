@@ -6,18 +6,7 @@ axios
     renderMap(response.data);
   });
 
-//擷取使用者位置
-let userPosition = [];
-const successCallback = (position) => {
-  userPosition.push(position.coords.latitude, position.coords.longitude);
-};
-const errorCallback = (error) => {
-  console.log(error);
-};
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-
 //渲染站點到地圖
-
 let greenIcon = new L.Icon({
   iconUrl:
     "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
