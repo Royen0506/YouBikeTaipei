@@ -25,13 +25,11 @@
 
     <section class="bg-dark py-3">
         <div class="container">
-            <p class="mb-0 text-white">版本1.01</p>
-            <p class="mb-0 text-white lh-lg">1. UI更新，下滑時彈出回到頁頂按鈕、部分美化(?、新增看起來髒髒的背景<br>2.
-                輸入搜尋移除搜尋按鈕，輸入完按手機鍵盤完成或電腦鍵盤Enter即會顯示結果<br>3.
-                新增顯示當前租借站數量<br>4.
-                新增捷運站篩選功能，顯示捷運站各出口站點<br>5. 吃了炸雞順便撸了幾下的貓</p>
-            <p class="fw-bold text-warning mb-0 mt-2">提醒：資料更新頻率為每分鐘更新一次<br>資料取自政府開放資料平台
+            <p class="mb-0 text-info">版本1.02</p>
+            <p class="mb-0 text-white lh-lg">1.新增地圖搜尋<br>2.區域搜尋後方新增道路搜尋<br>3.吃了塊蛋糕順便吸一下貓</p>
+            <p class="fw-bold text-warning mb-3 mt-2">提醒：資料更新頻率為每分鐘更新一次<br>資料取自政府開放資料平台
             </p>
+
         </div>
     </section>
 
@@ -39,6 +37,7 @@
         <div class="mt-3 mb-3">
             <div class="mb-3 flex-column">
                 <h2 class="fw-bold mb-3">查詢站點狀態</h2>
+                <a href="map.html" class="btn btn-warning text-white mb-3 rounded-4 fw-bold">點我進到地圖搜尋</a><br>
                 <label class="fw-bold form-label" for="area"><i
                         class="text-info fw-bold fs-3 bi bi-globe-asia-australia me-1"></i>區域搜尋</label>
                 <select class="rounded-4 text-center" name="area" id="area">
@@ -52,7 +51,9 @@
                     <option value="萬華區">萬華區</option>
                     <option value="文山區">文山區</option>
                     <option value="南港區">南港區</option>
-                    <option value="臺大公館校區">臺大公館校區</option>
+                </select>
+                <select class="rounded-4 text-center" name="road" id="road">
+                    <option value="">道路搜尋</option>
                 </select>
             </div>
             <div class="mb-3 flex-column">
@@ -71,9 +72,46 @@
             </div>
             <p class="countData text-secondary opacity-75 text-end text-lg-start pe-5 mb-0"></p>
         </div>
-        <div class="text-center mx-5">
-            <ul class="list list-unstyled row row-cols-1 row-cols-lg-3"></ul>
-        </div>
+        <ul class="list list-unstyled row row-cols-1 row-cols-lg-3 text-center mx-5">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                style="margin: auto; display: block;" width="200px" height="200px" viewBox="0 0 100 100"
+                preserveAspectRatio="xMidYMid">
+                <g>
+                    <circle cx="60" cy="50" r="4" fill="#689cc5">
+                        <animate attributeName="cx" repeatCount="indefinite" dur="1s" values="95;35" keyTimes="0;1"
+                            begin="-0.67s">
+                        </animate>
+                        <animate attributeName="fill-opacity" repeatCount="indefinite" dur="1s" values="0;1;1"
+                            keyTimes="0;0.2;1" begin="-0.67s"></animate>
+                    </circle>
+                    <circle cx="60" cy="50" r="4" fill="#689cc5">
+                        <animate attributeName="cx" repeatCount="indefinite" dur="1s" values="95;35" keyTimes="0;1"
+                            begin="-0.33s">
+                        </animate>
+                        <animate attributeName="fill-opacity" repeatCount="indefinite" dur="1s" values="0;1;1"
+                            keyTimes="0;0.2;1" begin="-0.33s"></animate>
+                    </circle>
+                    <circle cx="60" cy="50" r="4" fill="#689cc5">
+                        <animate attributeName="cx" repeatCount="indefinite" dur="1s" values="95;35" keyTimes="0;1"
+                            begin="0s">
+                        </animate>
+                        <animate attributeName="fill-opacity" repeatCount="indefinite" dur="1s" values="0;1;1"
+                            keyTimes="0;0.2;1" begin="0s"></animate>
+                    </circle>
+                </g>
+                <g transform="translate(-15 0)">
+                    <path d="M50 50L20 50A30 30 0 0 0 80 50Z" fill="#93dbe9" transform="rotate(90 50 50)"></path>
+                    <path d="M50 50L20 50A30 30 0 0 0 80 50Z" fill="#93dbe9">
+                        <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s"
+                            values="0 50 50;45 50 50;0 50 50" keyTimes="0;0.5;1"></animateTransform>
+                    </path>
+                    <path d="M50 50L20 50A30 30 0 0 1 80 50Z" fill="#93dbe9">
+                        <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s"
+                            values="0 50 50;-45 50 50;0 50 50" keyTimes="0;0.5;1"></animateTransform>
+                    </path>
+                </g>
+            </svg>
+        </ul>
     </section>
 
     <section data-aos="fade-down" class="fixed-bottom me-3 me-lg-5">
@@ -82,7 +120,7 @@
                 class="bg-info text-white rounded-3 d-none d-lg-block px-3 mb-3">Back to top</span></a>
     </section>
 
-    <footer class="bg-info text-white text-center mb-0 py-5 px-5">
+    <footer class="bg-info text-white text-center mb-0 py-5 px-5 ">
         <p class="h3 fw-bold mb-0 lh-lg">Copyright© 2023 Royen</p>
     </footer>
 

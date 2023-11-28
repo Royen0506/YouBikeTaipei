@@ -13034,4 +13034,8 @@ textarea.form-control-lg {
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
   }
+}
+#map {
+  height: 600px;
+  width: 100%;
 }/*# sourceMappingURL=all.css.map */

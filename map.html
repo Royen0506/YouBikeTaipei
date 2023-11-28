@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>臺北YouBike2.0站點狀態查詢</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+TC&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css">
+
+    <link rel="stylesheet" href="stylesheets/all.css">
+
+</head>
+
+<body style="background-image: url(./images/lightpaperfibers.png);">
+    <header class="bg-info" id="header">
+        <h1 data-aos="fade-down" class="text-center fw-bold py-3 py-lg-4 text-white mb-0"><i
+                class="bi bi-bicycle fw-bold"></i>
+            臺北市YouBike2.0<br class="d-block d-lg-none">租借站點查詢
+        </h1>
+    </header>
+
+    <section class="bg-dark py-3">
+        <div class="container">
+            <p class="mb-0 text-info">版本1.02</p>
+            <p class="mb-0 text-white lh-lg">1.新增地圖搜尋<br>2.區域搜尋後方新增道路搜尋<br>3.吃了塊蛋糕順便吸一下貓</p>
+            <p class="fw-bold text-warning mb-3 mt-2">提醒：資料更新頻率為每分鐘更新一次<br>資料取自政府開放資料平台
+            </p>
+            <a href="index.html" class="btn btn-warning text-white rounded-4 fw-bold">點我返回首頁</a><br>
+        </div>
+    </section>
+
+    <section>
+        <div id="map"></div>
+    </section>
+
+    <footer class="bg-info text-white text-center mb-0 py-5 px-5 ">
+        <p class="h3 fw-bold mb-0 lh-lg">Copyright© 2023 Royen</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+
+    <script src="Javascript/map.js"></script>
+    <script src="Javascript/all.js"></script>
+</body>
+
+</html>
