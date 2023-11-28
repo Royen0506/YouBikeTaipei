@@ -12,7 +12,9 @@ function renderMap(data) {
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  }).addTo(map);
+  });
+
+  L.marker(userPosition).bindPopup(`<p>您的位置</p>`).openPopup().addTo(map);
 
   let markers = L.markerClusterGroup().addTo(map);
   data.forEach(function (item) {
