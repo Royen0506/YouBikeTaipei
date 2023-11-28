@@ -12,7 +12,7 @@ navigator.geolocation.getCurrentPosition((position) => {
     });
 });
 
-// 渲染站點到地圖
+//新增使用位置標記Marker
 let greenIcon = new L.Icon({
   iconUrl:
     "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
@@ -24,8 +24,9 @@ let greenIcon = new L.Icon({
   shadowSize: [41, 41],
 });
 
+// 渲染站點到地圖
 function renderMap(data) {
-  let map = L.map("map").setView(userPosition, 14);
+  let map = L.map("map").setView(userPosition, 17);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
