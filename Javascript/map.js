@@ -26,18 +26,18 @@ let greenIcon = new L.Icon({
 });
 
 function renderMap(data) {
-  map = L.map("map").setView(userPosition, 16);
+  map = L.map("map").setView(userPosition, 15);
   L.tileLayer(
     "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
     {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    },
+    }
 
-    L.marker(userPosition, { icon: greenIcon })
-      .addTo(map)
-      .bindPopup(`<p>您的位置</p>`)
-      .openPopup()
+    // L.marker([25.0486589, 121.5092654], { icon: greenIcon })
+    //   .addTo(map)
+    //   .bindPopup(`<p>您的位置</p>`)
+    //   .openPopup()
   ).addTo(map);
 
   let markers = L.markerClusterGroup().addTo(map);
