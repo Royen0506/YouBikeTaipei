@@ -9,12 +9,14 @@ axios
 //渲染站點到地圖
 function renderMap(data) {
   map = L.map("map").setView(userPosition, 17);
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  });
-
-  L.marker(userPosition).bindPopup(`<p>您的位置</p>`).openPopup().addTo(map);
+  L.tileLayer(
+    "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    },
+    L.marker(userPosition).bindPopup(`<p>您的位置</p>`).openPopup()
+  ).addTo(map);
 
   let markers = L.markerClusterGroup().addTo(map);
   data.forEach(function (item) {
