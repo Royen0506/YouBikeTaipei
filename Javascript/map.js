@@ -1,9 +1,9 @@
 //擷取使用者位置;
-let userPosition = [];
+// let userPosition = [];
 
-navigator.geolocation.getCurrentPosition((position) => {
-  userPosition.push(position.coords.latitude, position.coords.longitude);
-});
+// navigator.geolocation.getCurrentPosition((position) => {
+//   userPosition.push(position.coords.latitude, position.coords.longitude);
+// });
 
 axios
   .get(
@@ -26,7 +26,7 @@ let greenIcon = new L.Icon({
 });
 
 function renderMap(data) {
-  map = L.map("map").setView(userPosition, 15);
+  map = L.map("map").setView([25.042254, 121.5509563], 15);
   L.tileLayer(
     "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
     {
