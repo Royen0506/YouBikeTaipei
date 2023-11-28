@@ -38,7 +38,7 @@ function renderMap(data) {
     markers.addLayer(
       L.marker([item.lat, item.lng])
         .bindPopup(
-          `<p>站名：${item.sna}</p><p>地址：${item.ar}</p><p>可租借車輛：${item.tot}</p><p>可歸還車位：${item.sbi}</p><a target="_blank" href="https://www.google.com.tw/maps/place/${item.ar}/@${item.lat},${item.lng},17z/">導航</a>`
+          `<p>站名：${item.sna}</p><p>地址：${item.ar}</p><p>可租借車輛：${item.tot}</p><p>可歸還車位：${item.sbi}</p><a target="_blank" href="https://www.google.com.tw/maps/place/${item.ar}/@${item.lat},${item.lng},20z/">導航</a>`
         )
         .openPopup()
     );
