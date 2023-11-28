@@ -1,3 +1,9 @@
+//擷取使用者位置;
+let userPosition = [];
+navigator.geolocation.getCurrentPosition((position) => {
+  userPosition.push(position.coords.latitude, position.coords.longitude);
+});
+
 axios
   .get(
     "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json"
@@ -38,7 +44,7 @@ function renderMap(data) {
     markers.addLayer(
       L.marker([item.lat, item.lng])
         .bindPopup(
-          `<p>站名：${item.sna}</p><p>地址：${item.ar}</p><p>可租借車輛：${item.sbi}</p><p>可歸還車位：${item.bemp}</p><a target="_blank" href="https://www.google.com.tw/maps/place/${item.ar}/@${item.lat},${item.lng},20z/">導航</a>`
+          `<p>站名：${item.sna}</p><p>地址：${item.ar}</p><p>可租借車輛：${item.sbi}</p><p>可歸還車位：${item.bemp}</p><a target="_blank" href="https://www.google.com.tw/maps/place/${item.ar}/@${item.lat},${item.lng},21z/">導航</a>`
         )
         .openPopup()
     );

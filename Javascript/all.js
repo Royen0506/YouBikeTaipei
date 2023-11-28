@@ -1,15 +1,5 @@
 let originalData;
 
-//擷取使用者位置
-let userPosition = [];
-const successCallback = (position) => {
-  userPosition.push(position.coords.latitude, position.coords.longitude);
-};
-const errorCallback = (error) => {
-  console.log(error);
-};
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-
 axios
   .get(
     "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json"
