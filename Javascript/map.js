@@ -82,10 +82,12 @@ function renderMap(data, userPosition) {
       mask = greenIcon;
     }
 
+    let arKeyword = `${item.sna.replace("_", "微笑單車2.0:")}`;
+
     markers.addLayer(
       L.marker([item.lat, item.lng], { icon: mask })
         .bindPopup(
-          `<p>站名：${item.sna}</p><p>地址：${item.ar}</p><p>可租借車輛：${item.sbi}</p><p>可歸還車位：${item.bemp}</p><a target="_blank" href="https://www.google.com.tw/maps/@${item.lat},${item.lng},21z?entry=ttu">在Google Map上導航</a>`
+          `<p>站名：${item.sna}</p><p>地址：${item.ar}</p><p>可租借車輛：${item.sbi}</p><p>可歸還車位：${item.bemp}</p><a target="_blank" href="https://www.google.com.tw/maps/dir/${userPosition}/${arKeyword}/@${item.lat},${item.lng},21z/?entry=ttu">在Google Map上導航</a>`
         )
         .openPopup()
     );
