@@ -1,8 +1,8 @@
 // 擷取使用者位置;
 let userPosition = [];
 
-navigator.geolocation.getCurrentPosition((position) => {
-  userPosition.push(position.coords.latitude, position.coords.longitude);
+navigator.geolocation.watchPosition((position) => {
+  userPosition = [position.coords.latitude, position.coords.longitude];
 
   axios
     .get(
@@ -36,7 +36,7 @@ let blackIcon = new L.Icon({
   shadowSize: [41, 41],
 });
 
-let VioletIcon = new L.Icon({
+let violetIcon = new L.Icon({
   iconUrl:
     "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png",
   shadowUrl:
@@ -66,7 +66,7 @@ function renderMap(data, userPosition) {
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
 
-  L.marker(userPosition, { icon: VioletIcon })
+  L.marker(userPosition, { icon: violetIcon })
     .addTo(map)
     .bindPopup(`<p>您的位置</p>`)
     .openPopup();

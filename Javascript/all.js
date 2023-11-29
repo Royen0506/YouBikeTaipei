@@ -366,7 +366,7 @@ function renderMrtList(data) {
     // console.log(keyword);
     let targetStation = [];
     data.forEach(function (item, index) {
-      if (item.sna.match(keyword)) {
+      if (item.sna.includes(keyword)) {
         targetStation.push(item);
         // console.log(item);
       }
@@ -400,7 +400,7 @@ function keywordSearch(arr) {
   //   renderData(targetStation);
   // });
 
-  searchInput.addEventListener("change", function (e) {
+  searchInput.addEventListener("input", function (e) {
     let keyword = searchInput.value.trim().toLowerCase();
     let targetStation = [];
     arr.forEach(function (item, index) {
