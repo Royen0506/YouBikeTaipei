@@ -60,7 +60,7 @@ let greyIcon = new L.Icon({
 // 渲染站點到地圖
 function renderMap(data, userPosition) {
   let map = L.map("map").setView(userPosition, 17);
-  console.log(userPosition);
+  // console.log(userPosition);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -85,7 +85,7 @@ function renderMap(data, userPosition) {
     markers.addLayer(
       L.marker([item.lat, item.lng], { icon: mask })
         .bindPopup(
-          `<p>站名：${item.sna}</p><p>地址：${item.ar}</p><p>可租借車輛：${item.sbi}</p><p>可歸還車位：${item.bemp}</p>`
+          `<p>站名：${item.sna}</p><p>地址：${item.ar}</p><p>可租借車輛：${item.sbi}</p><p>可歸還車位：${item.bemp}</p><a target="_blank" href="https://www.google.com.tw/maps/@${item.lat},${item.lng},21z?entry=ttu">在Google Map上導航</a>`
         )
         .openPopup()
     );
