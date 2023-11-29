@@ -1,17 +1,16 @@
 // 擷取使用者位置;
-let userPosition = [];
 
-navigator.geolocation.watchPosition((position) => {
-  userPosition.push(position.coords.latitude, position.coords.longitude);
+// navigator.geolocation.watchPosition((position) => {
+//   userPosition.push(position.coords.latitude, position.coords.longitude);
 
-  axios
-    .get(
-      "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json"
-    )
-    .then(function (response) {
-      renderMap(response.data, userPosition);
-    });
-});
+//   axios
+//     .get(
+//       "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json"
+//     )
+//     .then(function (response) {
+//       renderMap(response.data, userPosition);
+//     });
+// });
 
 //新增使用位置標記Marker
 let greenIcon = new L.Icon({

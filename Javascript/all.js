@@ -1,19 +1,22 @@
 let originalData;
-
-axios
-  .get(
-    "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json"
-  )
-  .then(function (response) {
-    originalData = response.data;
-    renderData(originalData);
-    filterData(originalData);
-    keywordSearch(originalData);
-    renderMrtList(originalData);
-    renderRoadSelect(originalData);
-    renderList();
-  });
-
+let userPosition = [];
+navigator.geolocation.watchPosition((position) => {
+  userPosition.push(position.coords.latitude, position.coords.longitude);
+  axios
+    .get(
+      "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json"
+    )
+    .then(function (response) {
+      originalData = response.data;
+      renderData(originalData);
+      filterData(originalData);
+      keywordSearch(originalData);
+      renderMrtList(originalData);
+      renderRoadSelect(originalData);
+      renderMap(response.data, userPosition);
+      renderList();
+    });
+});
 const list = document.querySelector(".list");
 const countData = document.querySelector(".countData");
 
