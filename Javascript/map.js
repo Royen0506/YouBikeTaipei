@@ -1,7 +1,7 @@
 // 擷取使用者位置;
 let userPosition = [];
 
-navigator.geolocation.watchPosition((position) => {
+navigator.geolocation.getCurrentPosition((position) => {
   userPosition.push(position.coords.latitude, position.coords.longitude);
 
   axios
@@ -59,10 +59,6 @@ let greyIcon = new L.Icon({
 
 // 渲染站點到地圖
 function renderMap(data, userPosition) {
-  map.eachLayer((layer) => {
-    layer.remove();
-  });
-
   let map = L.map("map").setView(userPosition, 17);
   console.log(userPosition);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
