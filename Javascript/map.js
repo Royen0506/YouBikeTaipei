@@ -1,7 +1,7 @@
 // 擷取使用者位置;
 let userPosition = [];
 
-navigator.geolocation.getCurrentPosition((position) => {
+navigator.geolocation.watchPosition((position) => {
   userPosition.push(position.coords.latitude, position.coords.longitude);
   axios
     .get(
