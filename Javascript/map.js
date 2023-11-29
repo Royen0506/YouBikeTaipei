@@ -1,14 +1,14 @@
 // 擷取使用者位置;
 let userPosition = [];
 
-navigator.geolocation.getCurrentPosition((position) => {
+navigator.geolocation.watchPosition((position) => {
   userPosition.push(position.coords.latitude, position.coords.longitude);
   axios
     .get(
       "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json"
     )
     .then(function (response) {
-      renderMap(response.data);
+      renderMap(response.data, userPosition);
     });
 });
 
@@ -57,7 +57,7 @@ let greyIcon = new L.Icon({
 });
 
 // 渲染站點到地圖
-function renderMap(data) {
+function renderMap(data, userPosition) {
   let map = L.map("map").setView(userPosition, 17);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
