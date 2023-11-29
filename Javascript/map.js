@@ -1,5 +1,5 @@
 // 擷取使用者位置;
-let userPosition;
+let userPosition = [];
 
 navigator.geolocation.watchPosition((position) => {
   userPosition.push(position.coords.latitude, position.coords.longitude);
