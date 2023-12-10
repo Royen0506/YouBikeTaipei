@@ -14,7 +14,7 @@ axios
     renderList();
   });
 
-const list = document.querySelector(".list");
+const list = document.querySelector(".bikeList");
 const countData = document.querySelector(".countData");
 
 //初始化資料渲染
@@ -22,8 +22,8 @@ function renderData(data) {
   let str = "";
   data.forEach(function (item, index) {
     // console.log(item);
-    let content = `<li class="fw-bold bg-dark text-white
-    border border-warning border-3 rounded-4 py-3 mb-3">站名：${item.sna}<p>地址：${item.ar}</p><br>站點目前可租借車輛<p class="fs-3 text-warning">${item.sbi}</p>可歸還車位<p class="fs-3 text-warning mb-0">${item.bemp}</p></li>`;
+    let content = `<div><div class="fw-bold bg-dark text-white
+    border border-warning border-3 rounded-4 p-3 mb-3">站名：${item.sna}<p>地址：${item.ar}</p><br>站點目前可租借車輛<p class="fs-3 text-warning">${item.sbi}</p>可歸還車位<p class="fs-3 text-warning mb-0">${item.bemp}</p></div></div>`;
     str += content;
   });
   list.innerHTML = str;
