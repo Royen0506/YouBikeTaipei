@@ -205,7 +205,9 @@ app.component("bike-map", {
                 </div>
             </div>
         </div>
-        <div id="map"></div>
+        <div v-if="!mapInitialized" class="text-center"><img src="../images/Ellipsis-3.6s-197px.svg"></div>
+        <div id="map">
+        </div>
     </section>`,
 
   methods: {
