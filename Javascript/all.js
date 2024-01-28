@@ -243,7 +243,8 @@ app.component("bike-map", {
         (error) => {
           // 拒絕存取位置設定預設值
           this.userPosition = [25.03746, 121.564558];
-          if (!this.mapInitialized) {
+          if (this.originalData.length > 0) {
+            // 確認 originalData 是否已有資料
             this.mapInit(this.originalData, this.userPosition);
             this.mapInitialized = true;
           } else {
