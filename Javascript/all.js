@@ -241,13 +241,16 @@ app.component("bike-map", {
           }
         },
         (error) => {
-          console.error("Error getting user position:", error);
-          // 用户拒绝位置访问，设置默认位置
-          this.userPosition = [defaultLatitude, defaultLongitude];
-          // 如果地图尚未初始化，则初始化地图
+          // 拒絕存取位置設定預設值
+          this.userPosition = [25.03746, 121.564558];
           if (!this.mapInitialized) {
             this.mapInit(this.originalData, this.userPosition);
             this.mapInitialized = true;
+          } else {
+            ///如果 originalData 沒資料1秒後再執行一次
+            setTimeout(() => {
+              this.renderMap();
+            }, 1000);
           }
         }
       );
