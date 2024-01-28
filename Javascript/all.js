@@ -132,7 +132,7 @@ app.component("card", {
 app.component("bike-map", {
   data() {
     return {
-      userPosition: [25.03746, 121.564558],
+      userPosition: null,
       bikeData: [],
       mapInitialized: false,
       greenIcon: new L.Icon({
@@ -221,24 +221,25 @@ app.component("bike-map", {
     },
 
     renderMap() {
-      navigator.geolocation.watchPosition((position) => {
-        this.userPosition = [
-          position.coords.latitude,
-          position.coords.longitude,
-        ];
-        if (!this.mapInitialized) {
-          if (this.originalData.length > 0) {
-            // 確認 originalData 是否已有資料
+      navigator.geolocation.watchPosition(
+        (position) => {
+          this.userPosition = [
+            position.coords.latitude,
+            position.coords.longitude,
+          ];
+          if (!this.mapInitialized) {
             this.mapInit(this.originalData, this.userPosition);
             this.mapInitialized = true;
-          } else {
-            ///如果 originalData 沒資料1秒後再執行一次
-            setTimeout(() => {
-              this.renderMap();
-            }, 1000);
+          }
+        },
+        (error) => {
+          this.userPosition = [25.03746, 121.564558];
+          if (!this.mapInitialized) {
+            this.mapInit(this.originalData, this.userPosition);
+            this.mapInitialized = true;
           }
         }
-      });
+      );
     },
 
     mapInit(data, userPosition) {
