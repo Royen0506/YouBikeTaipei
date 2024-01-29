@@ -279,5 +279,4 @@ export default defineStore("stationStore", {
         });
     },
   },
-  getters: {},
 });
