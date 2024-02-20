@@ -1,6 +1,6 @@
 # YouBikeTaipei
 
-前端框架：VUE(Options API)
-狀態管理工具：Pinia
-UI框架：Bootstrap
-套件：Axios、AOS、Leaflet
+前端框架：VUE(Options API)<br>
+狀態管理工具：Pinia<br>
+UI框架：Bootstrap<br>
+套件：Axios、AOS、Leaflet<br>
