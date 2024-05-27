@@ -8,7 +8,6 @@ export default {
         <section class="bg-dark py-3">
             <div class="container">
                 <p class="mb-0 text-info">版本1.02</p>
-                <p class="mb-0 text-white lh-lg">1.新增地圖搜尋<br>2.區域搜尋後方新增道路搜尋<br>3.吃了塊蛋糕順便吸一下貓</p>
                 <p class="fw-bold text-warning mb-3 mt-2">提醒：資料更新頻率為每分鐘更新一次<br>資料取自政府開放資料平台
                 </p>
                 <slot></slot>
