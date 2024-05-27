@@ -69,7 +69,7 @@ app.component("card", {
                 <p v-if="!tempData.length == 0" class="text-secondary opacity-75 text-end text-lg-start pe-5 mb-0">－共 <span class="fw-bold">{{ tempData.length }}</span> 處租借站－</p>
             </div>
             <div class="bikeList row row-cols-1 row-cols-lg-3 g-4 text-center mx-3 mx-lg-0">
-            <div v-for="(item,key) in tempData"><div class="h-100 fw-bold bg-dark text-white border border-warning border-3 rounded-4 p-3 mb-3">站名：{{item.sna}}<p>地址：{{item.ar}}</p><br>站點目前可租借車輛<p class="fs-3 text-warning">{{item.sbi}}</p>可歸還車位<p class="fs-3 text-warning mb-0">{{item.bemp}}</p></div></div>
+            <div v-for="(item,key) in tempData"><div class="h-100 fw-bold bg-dark text-white border border-warning border-3 rounded-4 p-3 mb-3">站名：{{item.sna}}<p>地址：{{item.ar}}</p><br>站點目前可租借車輛<p class="fs-3 text-warning">{{item.available_rent_bikes}}</p>可歸還車位<p class="fs-3 text-warning mb-0">{{item.available_return_bikes}}</p></div></div>
             </div>
         </section>`,
 
@@ -287,9 +287,9 @@ app.component("bike-map", {
           .replace("_", "")}`;
 
         markers.addLayer(
-          L.marker([item.lat, item.lng], { icon: mask })
+          L.marker([item.latitude, item.longitude], { icon: mask })
             .bindPopup(
-              `<p>站名：${item.sna}</p><p>地址：${item.ar}</p><p>可租借車輛：${item.sbi}</p><p>可歸還車位：${item.bemp}</p><a target="_blank" href="https://www.google.com.tw/maps/dir/${userPosition}/${arKeyword}/@${item.lat},${item.lng},19z/?entry=ttu">在Google Map上導航</a>`
+              `<p>站名：${item.sna}</p><p>地址：${item.ar}</p><p>可租借車輛：${item.available_rent_bikes}</p><p>可歸還車位：${item.available_return_bikes}</p><a target="_blank" href="https://www.google.com.tw/maps/dir/${userPosition}/${arKeyword}/@${item.latitude},${item.longitude},19z/?entry=ttu">在Google Map上導航</a>`
             )
             .openPopup()
         );
