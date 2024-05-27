@@ -273,7 +273,6 @@ export default defineStore("stationStore", {
         )
         .then((res) => {
           this.originalData = res.data;
-          console.log(this.originalData);
         })
         .catch((err) => {
           console.log(err);
